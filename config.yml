@@ -9,9 +9,16 @@ before:
     title: Welcome!
     body: new-issue.md
 steps:
-  - title: First step
-    description: The first step in your course
+  - title: 'Step #1'
+    description: Assign yourself to this issue to continue.
     event: issues.assigned
     link: '{{ repoUrl }}'
     actions:
-      - type: closeIssue
+      - type: createPullRequest
+        title: 'PullRequest #2'
+        body: responses-step-2
+        head: step1
+        base: master
+  - title: 'Step #2'
+    description: Merge this Pull Request
+    event: pull_request.closed
